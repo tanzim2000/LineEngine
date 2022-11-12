@@ -9,7 +9,7 @@
  * 	<li>New set of class constructors</li>
  * 	<li>Bug Fixes</li>
  * </ul>
- * <div style="border: 2px dashed">
+ * <div style="border: 2px dashed; background-color: black; color: blue;">
  * <p style="text-align:center;">Newer update will support pattern arguments</p>
  * </div>
  * <br>
@@ -19,9 +19,9 @@
  */
 public class Liner {
 	/** default {@code char} element to create a line */
-	char lineElement;
+	private char lineElement;
 	/** default line length */
-	int lineLength;
+	private int lineLength;
 	
 	/**
 	 * default constructor
