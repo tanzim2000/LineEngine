@@ -106,4 +106,46 @@ public class Liner {
 		}
 		return line;
 	}
+	/* === PATTERN IMPL === */
+	/**
+	 * Method to generate a line using a given pattern, mode, and line length.
+	 * @param pattern The pattern for the line, as a string.
+	 * @param mode The mode to use for generating the line, as a char ('R', 'S', 'M').
+	 * @param lineLength The desired length of the generated line.
+	 * @return The generated line as a string.
+	 */
+	public String pattern(String pattern, char mode, int lineLength) {
+		String line = "";
+		switch (mode) {
+			case 'R':
+				int patternIndex = 0;
+				while (line.length() < lineLength) {
+					line += pattern.charAt(patternIndex);
+					patternIndex++;
+					if (patternIndex == pattern.length()) {
+						patternIndex = 0;
+					}
+				}
+				break;
+			case 'S':
+				int stretch = pattern.length() - (lineLength % pattern.length());
+				for (int i = 0; i < pattern.length(); i++) {
+					for (int j = 0; j < stretch; j++) {
+						line += pattern.charAt(i);
+					}
+				}
+				break;
+			case 'M':
+				int border = (lineLength / 2) - (pattern.length() / 2);
+				for (int i = 0; i < border; i++) {
+					line += pattern.charAt(0);
+				}
+				line += pattern;
+				for (int i = 0; i < border; i++) {
+					line += pattern.charAt(pattern.length() - 1);
+				}
+				break;
+		}
+		return line;
+	}
 }
